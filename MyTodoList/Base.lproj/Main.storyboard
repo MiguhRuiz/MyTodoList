@@ -27,13 +27,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sTi-Q3-nOm">
+                                <rect key="frame" x="20" y="83" width="560" height="497"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sTi-Q3-nOm" secondAttribute="trailing" id="0mm-BG-bg3"/>
+                            <constraint firstItem="sTi-Q3-nOm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="63" id="BaE-fe-7Yp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="7wI-gR-EmC" secondAttribute="leading" id="Jf5-HU-KKS"/>
+                            <constraint firstItem="sTi-Q3-nOm" firstAttribute="top" secondItem="7wI-gR-EmC" secondAttribute="bottom" constant="8" id="Pqf-rb-rNf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="sTi-Q3-nOm" secondAttribute="leading" id="Wqn-2t-rxf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2QL-s1-sqI" secondAttribute="trailing" id="fJT-8K-8sq"/>
                             <constraint firstItem="7wI-gR-EmC" firstAttribute="baseline" secondItem="2QL-s1-sqI" secondAttribute="baseline" id="mGY-X5-tfJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sTi-Q3-nOm" secondAttribute="trailing" id="mbn-7W-7UZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sTi-Q3-nOm" secondAttribute="bottom" constant="20" id="pRp-14-Ayj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="sTi-Q3-nOm" secondAttribute="leading" id="tTj-VV-fbA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sTi-Q3-nOm" secondAttribute="trailing" id="tiF-sK-X36"/>
                             <constraint firstItem="2QL-s1-sqI" firstAttribute="leading" secondItem="7wI-gR-EmC" secondAttribute="trailing" constant="8" id="uhg-c8-YnJ"/>
+                            <constraint firstItem="sTi-Q3-nOm" firstAttribute="top" secondItem="7wI-gR-EmC" secondAttribute="bottom" constant="8" id="vSj-cJ-QYb"/>
                             <constraint firstItem="2QL-s1-sqI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="x7e-Ju-Nnb"/>
                         </constraints>
                     </view>
