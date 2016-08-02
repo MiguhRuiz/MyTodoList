@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1170BC811D50750D00AC879D /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170BC801D50750D00AC879D /* TodoList.swift */; };
 		11A562871D4E542D00B86749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A562861D4E542D00B86749 /* AppDelegate.swift */; };
 		11A562891D4E542D00B86749 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A562881D4E542D00B86749 /* ViewController.swift */; };
 		11A5628C1D4E542D00B86749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A5628A1D4E542D00B86749 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1170BC801D50750D00AC879D /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		11A562831D4E542D00B86749 /* MyTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A562861D4E542D00B86749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A562881D4E542D00B86749 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				11A562861D4E542D00B86749 /* AppDelegate.swift */,
 				11A562881D4E542D00B86749 /* ViewController.swift */,
+				1170BC801D50750D00AC879D /* TodoList.swift */,
 				11A5628A1D4E542D00B86749 /* Main.storyboard */,
 				11A5628D1D4E542D00B86749 /* Assets.xcassets */,
 				11A5628F1D4E542D00B86749 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1170BC811D50750D00AC879D /* TodoList.swift in Sources */,
 				11A562891D4E542D00B86749 /* ViewController.swift in Sources */,
 				11A562871D4E542D00B86749 /* AppDelegate.swift in Sources */,
 			);
@@ -482,6 +486,7 @@
 				11A562AD1D4E542E00B86749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11A562AE1D4E542E00B86749 /* Build configuration list for PBXNativeTarget "MyTodoListTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				11A562B01D4E542E00B86749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11A562B11D4E542E00B86749 /* Build configuration list for PBXNativeTarget "MyTodoListUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				11A562B31D4E542E00B86749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
