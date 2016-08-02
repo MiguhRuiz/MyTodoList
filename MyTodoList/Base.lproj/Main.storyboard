@@ -21,6 +21,9 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QL-s1-sqI">
                                 <rect key="frame" x="524" y="44" width="56" height="30"/>
                                 <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xrB-cM-T6g"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Introduce tu tarea aquí" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-gR-EmC">
                                 <rect key="frame" x="20" y="45" width="496" height="30"/>
@@ -50,6 +53,10 @@
                             <constraint firstItem="2QL-s1-sqI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="x7e-Ju-Nnb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemTextField" destination="7wI-gR-EmC" id="zc6-dm-PBo"/>
+                        <outlet property="tableView" destination="sTi-Q3-nOm" id="cnb-7M-2OC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
