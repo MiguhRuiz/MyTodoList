@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
     
     let todoList = TodoList()
     
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         print("Agregado un elemento a la lista: \(itemTextField.text)")
         todoList.addItem(itemTextField.text!)
         tableView.reloadData()
+        self.itemTextField?.resignFirstResponder()
     }
     
 
@@ -27,11 +28,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = todoList
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Métodos del table view delegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.itemTextField?.resignFirstResponder()
+        
+        
     }
 
 

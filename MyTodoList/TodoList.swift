@@ -10,9 +10,41 @@ import UIKit
 
 class TodoList: NSObject {
     var items: [String] = []
+    
+    override init() {
+        super.init()
+        loadItems()
+    }
+    
+    
+    private let fileURL: NSURL = {
+        let fileManager = NSFileManager.defaultManager()
+        let documentDirectroryURLs = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let documentDirectoryURL = documentDirectroryURLs.first!
+        print("Path de documents \(documentDirectoryURL)")
+        return documentDirectoryURL.URLByAppendingPathComponent("todolist.items")
+    }()
+    
     func addItem(item: String) {
         items.append(item)
+        saveItems()
     }
+    
+    func saveItems() {
+        let itemsArray = items as NSArray
+        if itemsArray.writeToURL(self.fileURL, atomically: true) {
+            print("Guardado")
+        } else {
+            print("No guardado")
+        }
+    }
+    
+    func loadItems() {
+        if let itemsArray = NSArray(contentsOfURL: self.fileURL) as? [String] {
+            self.items = itemsArray
+        }
+    }
+    
 }
 
 extension TodoList : UITableViewDataSource {
