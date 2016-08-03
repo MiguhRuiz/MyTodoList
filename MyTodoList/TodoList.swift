@@ -47,7 +47,7 @@ class TodoList: NSObject {
     
 }
 
-extension TodoList : UITableViewDataSource {
+extension TodoList: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -58,6 +58,18 @@ extension TodoList : UITableViewDataSource {
         
         cell.textLabel!.text = item
         return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        items.removeAtIndex(indexPath.row)
+        saveItems()
+        tableView.beginUpdates()
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        tableView.endUpdates()
     }
     
 }
