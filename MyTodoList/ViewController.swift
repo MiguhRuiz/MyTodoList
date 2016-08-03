@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     let todoList = TodoList()
+    static let MAX_TEXT_SIZE = 50
     
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         print("Agregado un elemento a la lista: \(itemTextField.text)")
         todoList.addItem(itemTextField.text!)
         tableView.reloadData()
+        self.itemTextField.text = nil
         self.itemTextField?.resignFirstResponder()
     }
     
@@ -39,10 +41,18 @@ class ViewController: UIViewController, UITableViewDelegate {
     //MARK: Métodos del table view delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.itemTextField?.resignFirstResponder()
-        
-        
     }
-
+    
+    //MARK: Método del text field delegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if let tareaString = textField.text as? NSString {
+            let updatedString = tareaString.stringByReplacingCharactersInRange(range, withString: string)
+            return updatedString.characters.count <= ViewController.MAX_TEXT_SIZE
+        }
+        else {
+            return true
+        }
+}
 
 }
 
