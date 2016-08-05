@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     let todoList = TodoList()
+    
+    
+    var selectedItem: String?
+    
     static let MAX_TEXT_SIZE = 50
     
     @IBOutlet weak var itemTextField: UITextField!
@@ -41,6 +45,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     //MARK: Métodos del table view delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.itemTextField?.resignFirstResponder()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showItem", sender: self)
+        self.selectedItem = self.todoList.getItem(indexPath.row)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let DetailViewController = segue.destinationViewController as? DetailViewController {
+            DetailViewController.item = self.selectedItem
+        }
     }
     
     //MARK: Método del text field delegate

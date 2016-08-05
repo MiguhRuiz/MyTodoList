@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1159EE751D5495E000918861 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159EE741D5495E000918861 /* DetailViewController.swift */; };
 		1170BC811D50750D00AC879D /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170BC801D50750D00AC879D /* TodoList.swift */; };
 		11A562871D4E542D00B86749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A562861D4E542D00B86749 /* AppDelegate.swift */; };
 		11A562891D4E542D00B86749 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A562881D4E542D00B86749 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1159EE741D5495E000918861 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = MyTodoList/DetailViewController.swift; sourceTree = "<group>"; };
 		1170BC801D50750D00AC879D /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		11A562831D4E542D00B86749 /* MyTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A562861D4E542D00B86749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		11A5627A1D4E542D00B86749 = {
 			isa = PBXGroup;
 			children = (
+				1159EE741D5495E000918861 /* DetailViewController.swift */,
 				11A562851D4E542D00B86749 /* MyTodoList */,
 				11A5629A1D4E542E00B86749 /* MyTodoListTests */,
 				11A562A51D4E542E00B86749 /* MyTodoListUITests */,
@@ -262,6 +265,7 @@
 				1170BC811D50750D00AC879D /* TodoList.swift in Sources */,
 				11A562891D4E542D00B86749 /* ViewController.swift in Sources */,
 				11A562871D4E542D00B86749 /* AppDelegate.swift in Sources */,
+				1159EE751D5495E000918861 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
