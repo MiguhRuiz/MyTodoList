@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoList: NSObject {
-    var items: [String] = []
+    var items: [TodoItem] = []
     
     override init() {
         super.init()
@@ -22,17 +22,17 @@ class TodoList: NSObject {
         let documentDirectroryURLs = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let documentDirectoryURL = documentDirectroryURLs.first!
         print("Path de documents \(documentDirectoryURL)")
-        return documentDirectoryURL.URLByAppendingPathComponent("todolist.items")
+        return documentDirectoryURL.URLByAppendingPathComponent("todolist.plist")
     }()
     
-    func addItem(item: String) {
+    func addItem(item: TodoItem) {
         items.append(item)
         saveItems()
     }
     
     func saveItems() {
         let itemsArray = items as NSArray
-        if itemsArray.writeToURL(self.fileURL, atomically: true) {
+        if NSKeyedArchiver.archiveRootObject(itemsArray, toFile: self.fileURL.path!) {
             print("Guardado")
         } else {
             print("No guardado")
@@ -40,12 +40,12 @@ class TodoList: NSObject {
     }
     
     func loadItems() {
-        if let itemsArray = NSArray(contentsOfURL: self.fileURL) as? [String] {
-            self.items = itemsArray
+        if let itemsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(self.fileURL.path!) {
+            self.items = itemsArray as! [TodoItem]
         }
     }
     
-    func getItem(index: Int) -> String {
+    func getItem(index: Int) -> TodoItem {
         return items[index]
     }
     
@@ -60,7 +60,7 @@ extension TodoList: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let item = items[indexPath.row]
         
-        cell.textLabel!.text = item
+        cell.textLabel!.text = item.todo
         return cell
     }
     

@@ -8,18 +8,35 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var item: String?
+    var item: TodoItem?
+    
+    var todoList: TodoList?
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     @IBAction func addNotification(sender: AnyObject) {
         if let dateString = self.dateLabel.text {
             if let date = parseDate(dateString) {
-                scheduleNotification(self.item!, date: date)
+                self.item?.dueDate = date
+                self.todoList!.saveItems()
+                scheduleNotification(self.item!.todo!, date: date)
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
+    }
+
+    @IBAction func addImage(sender: UIBarButtonItem) {
+        let photosPicker = UIImagePickerController()
+        photosPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        photosPicker.delegate = self
+        //      photosPicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(photosPicker, animated: true, completion: nil)
     }
     
     func scheduleNotification(message: String, date: NSDate) {
@@ -35,6 +52,8 @@ class DetailViewController: UIViewController {
     @IBAction func dateSelected(sender: UIDatePicker) {
         print("Fecha seleccionada \(sender.date)")
         self.dateLabel.text = formatDate(sender.date)
+        self.datePicker.hidden = true
+        toggleDatePicker()
     }
     
     func formatDate(date: NSDate) -> String {
@@ -52,7 +71,30 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(item)")
-        self.descriptionLabel.text = item
+        showItem()
+        let tapGestureRecogniser = UITapGestureRecognizer()
+        tapGestureRecogniser.numberOfTapsRequired = 1
+        tapGestureRecogniser.numberOfTouchesRequired = 1
+        tapGestureRecogniser.addTarget(self, action: "toggleDatePicker")
+        self.dateLabel.addGestureRecognizer(tapGestureRecogniser)
+        self.dateLabel.userInteractionEnabled = true
+    }
+    
+    func showItem() {
+        self.descriptionLabel.text = item?.todo
+        if let date = item?.dueDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy HH:mm"
+            self.dateLabel.text = formatter.stringFromDate(date)
+        }
+        if let img = item?.image {
+            self.imageView.image = img
+        }
+    }
+    
+    func toggleDatePicker() {
+        self.imageView.hidden = !self.imageView.hidden
+        self.datePicker.hidden = !self.datePicker.hidden
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,15 +102,14 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: Image Picker Controller Methods
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.item?.image = image
+            self.todoList?.saveItems()
+            self.imageView.image = image
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    
 }

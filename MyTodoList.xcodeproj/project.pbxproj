@@ -16,6 +16,7 @@
 		11A562911D4E542D00B86749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A5628F1D4E542D00B86749 /* LaunchScreen.storyboard */; };
 		11A5629C1D4E542E00B86749 /* MyTodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A5629B1D4E542E00B86749 /* MyTodoListTests.swift */; };
 		11A562A71D4E542E00B86749 /* MyTodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A562A61D4E542E00B86749 /* MyTodoListUITests.swift */; };
+		11F536FD1D55042300369A83 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F536FC1D55042300369A83 /* TodoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		11A562A21D4E542E00B86749 /* MyTodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A562A61D4E542E00B86749 /* MyTodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoListUITests.swift; sourceTree = "<group>"; };
 		11A562A81D4E542E00B86749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11F536FC1D55042300369A83 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				11A5628D1D4E542D00B86749 /* Assets.xcassets */,
 				11A5628F1D4E542D00B86749 /* LaunchScreen.storyboard */,
 				11A562921D4E542D00B86749 /* Info.plist */,
+				11F536FC1D55042300369A83 /* TodoItem.swift */,
 			);
 			path = MyTodoList;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F536FD1D55042300369A83 /* TodoItem.swift in Sources */,
 				1170BC811D50750D00AC879D /* TodoList.swift in Sources */,
 				11A562891D4E542D00B86749 /* ViewController.swift in Sources */,
 				11A562871D4E542D00B86749 /* AppDelegate.swift in Sources */,
