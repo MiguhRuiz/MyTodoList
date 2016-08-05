@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Lista de tareas-->
@@ -78,8 +79,89 @@
                     <view key="view" contentMode="scaleToFill" id="g2t-qc-T4u">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SYK-g6-3At">
+                                <rect key="frame" x="20" y="64" width="560" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="glg-Sl-Z9N">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="150"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarea:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-iC-cci">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia7-6C-lBW">
+                                                <rect key="frame" x="284" y="0.0" width="276" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k5x-hR-2Rz">
+                                        <rect key="frame" x="0.0" y="150" width="560" height="150"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbg-P7-NjL">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sin fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLw-U3-1x3">
+                                                <rect key="frame" x="284" y="0.0" width="276" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="CHJ-Or-tdC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CHJ-Or-tdC"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ysI-6f-x2h">
+                                <rect key="frame" x="0.0" y="364" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="9XX-uD-pkb"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="492091278.71418899">
+                                    <!--2016-08-05 12:01:18 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateSelected:" destination="naF-cc-ZkT" eventType="valueChanged" id="2u0-dy-3JM"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SYK-g6-3At" firstAttribute="leading" secondItem="g2t-qc-T4u" secondAttribute="leadingMargin" id="61c-g4-pt1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SYK-g6-3At" secondAttribute="trailing" id="D3k-Cf-yNt"/>
+                            <constraint firstAttribute="trailing" secondItem="ysI-6f-x2h" secondAttribute="trailing" id="RbF-w1-f09"/>
+                            <constraint firstItem="SYK-g6-3At" firstAttribute="top" secondItem="jIO-Ae-WqH" secondAttribute="bottom" id="geU-vf-WLM"/>
+                            <constraint firstItem="ysI-6f-x2h" firstAttribute="leading" secondItem="g2t-qc-T4u" secondAttribute="leading" id="pGZ-K8-Aoq"/>
+                            <constraint firstItem="SYK-g6-3At" firstAttribute="height" secondItem="g2t-qc-T4u" secondAttribute="height" multiplier="0.5" id="rtu-0Y-B6w"/>
+                            <constraint firstItem="ysI-6f-x2h" firstAttribute="top" secondItem="SYK-g6-3At" secondAttribute="bottom" id="vNc-tQ-XHD"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JFw-tl-4M8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eyf-1n-2Sw">
+                            <connections>
+                                <action selector="addNotification:" destination="naF-cc-ZkT" id="iW9-PF-bhI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateLabel" destination="SLw-U3-1x3" id="JcR-9x-zeI"/>
+                        <outlet property="descriptionLabel" destination="ia7-6C-lBW" id="Cn8-j9-wNz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtv-0g-dgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
