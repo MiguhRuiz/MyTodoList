@@ -78,6 +78,24 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         tapGestureRecogniser.addTarget(self, action: "toggleDatePicker")
         self.dateLabel.addGestureRecognizer(tapGestureRecogniser)
         self.dateLabel.userInteractionEnabled = true
+        self.addGestureRecogniserToImage()
+    }
+    
+    func addGestureRecogniserToImage() {
+        let gr = UITapGestureRecognizer()
+        gr.numberOfTapsRequired = 1
+        gr.numberOfTouchesRequired = 1
+        gr.addTarget(self, action: "rotate")
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(gr)
+    }
+    
+    func rotate () {
+        let animation = CABasicAnimation()
+        animation.keyPath = "transform.rotation.x"
+        animation.toValue = M_PI * 2.0
+        animation.duration = 1
+        self.imageView.layer.addAnimation(animation, forKey: "rotateAnimation")
     }
     
     func showItem() {
