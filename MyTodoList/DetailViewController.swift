@@ -93,13 +93,40 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func toggleDatePicker() {
-        self.imageView.hidden = !self.imageView.hidden
-        self.datePicker.hidden = !self.datePicker.hidden
+        if self.datePicker.hidden {
+            fadeInDatePicker()
+        } else {
+            fadeOutDatePicker()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Animaciones
+    
+    func fadeInDatePicker() {
+        self.datePicker.alpha = 0
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1) { () -> Void in
+            self.datePicker.alpha = 1
+            self.imageView.alpha = 0
+        }
+    }
+    
+    func fadeOutDatePicker() {
+        self.datePicker.alpha = 1
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.datePicker.alpha = 0
+            self.imageView.alpha = 1
+        }) { (completed) -> Void in
+            if completed {
+                self.datePicker.hidden = true
+            }
+        }
     }
     
     //MARK: Image Picker Controller Methods
