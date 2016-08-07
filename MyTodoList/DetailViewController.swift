@@ -26,11 +26,33 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self.item?.dueDate = date
                 self.todoList!.saveItems()
                 scheduleNotification(self.item!.todo!, date: date)
-                self.navigationController?.popViewControllerAnimated(true)
+                API.save(self.item!, todoList: self.todoList!, responseBlock: {
+                    (error) -> Void in
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if let err = error {
+                            print(err)
+                            self.showError()
+                        } else {
+                            self.navigationController?.popViewControllerAnimated(true)
+                        }
+                    })
+
+                })
             }
         }
     }
 
+    func showError() {
+        let alert = UIAlertController(title: "Ups", message: "No pudimos guardar tus cambios, revisa tu conexión a internet. :)", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default) {
+            _ in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func addImage(sender: UIBarButtonItem) {
         let photosPicker = UIImagePickerController()
         photosPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
